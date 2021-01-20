@@ -1,24 +1,36 @@
-# Tooling up and building
-## Install Cargo Modules
- - Recursive clean: `cargo install cargo-clean-recursive`
+# Rust Test Project
 
-## Rustup - Add targets
- - show all targets: `rustup target list`
- - add a target: `rustup target add <target-name>` (now do `cargo build --target <tab>` you can see your new target listed)
+## 1. Tooling up and building
 
-## Building
- - local debug target: `cargo build`
- - local release target: `cargo build --release`
- - arm7 (bbb) debug target: `cargo build --target armv7-unknown-linux-gnueabihf`
+### Install Cargo Modules
 
-## Clean
- - clean all targets: `cargo clean`
- - clean release only: `cargo clean --release`
+- Recursive clean: `cargo install cargo-clean-recursive`
 
-# Language features
-## Templates
+### Rustup - Add targets
+
+- show all targets: `rustup target list`
+- add a target: `rustup target add <target-name>` (now do `cargo build --target <tab>` you can see your new target listed)
+
+### Building
+
+- local debug target: `cargo build`
+- local release target: `cargo build --release`
+- arm7 (bbb) debug target: `cargo build --target armv7-unknown-linux-gnueabihf`
+
+### Clean
+
+- clean all targets: `cargo clean`
+- clean release only: `cargo clean --release`
+
+## 2. Language features
+
+### Templates
+
 Template functions are much harder to write, there is no weak typing so fully generic code is not easy - but is somewhat possible.
-See: https://stackoverflow.com/questions/63748118/simple-rust-generic-template-add-function
+See: [simple-rust-generic-template-add-function](https://stackoverflow.com/questions/63748118/simple-rust-generic-template-add-function)
 
-## Libraries and sub-projects
+## 3. Project Structuring
+
+### Libraries and sub-projects
+
 I have not quite figured out how to build a hierarchical structure containing .rlib and executables that link dynamically. However this repo does have a sub-folder (could be a submodule) called utils that builds to a .rlib - but when built from the top level just gets linked statically into the top-level project.
