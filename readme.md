@@ -1,7 +1,5 @@
 # Rust Test Project
 
-[[TOC]]
-
 ## 1. Tooling up and building
 
 ### Install Cargo Modules
