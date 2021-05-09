@@ -10,7 +10,7 @@ fn check() -> bool {
 
 fn main() {
     unsafe {
-        println!("C-Adding: {}", cadd(1, 2));
+        println!("C-Adding: {}", cadd(3, 2));
     }
 
     println!("Hello, world!");
@@ -42,6 +42,15 @@ mod main_tester {
 
     #[test]
     fn main_t2() {
-        assert_eq!(check(), false);
+        assert_ne!(check(), false);
     }
+
+    #[test]
+    fn c_test() {
+        unsafe {
+            assert_eq!(cadd(3, 2), 5);
+        }
+    }
+
+
 }

@@ -4,6 +4,6 @@
 int cadd(int a, int b)
 {
     int res = a + b;
-    std::cout << "res from c: " << res << std::endl;
+    std::cout << "Hello from C: " << a << " + " << b << " = " << res << std::endl;
     return res;
 }
