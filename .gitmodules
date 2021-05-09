@@ -1,0 +1,3 @@
+[submodule "cadd/make_utils"]
+	path = cadd/make_utils
+	url = https://github.com/code-fodder/make_utils.git
