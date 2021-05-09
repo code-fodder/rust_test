@@ -1,4 +1,10 @@
+use std::process::Command;
+
 fn main() {
+
+    Command::new("printf 123");
+
+    // EXTERN_C
     // The name of the library to link to, i.e. like: -l<lib>
     println!("cargo:rustc-link-lib=dylib=add_x64Linuxd");
     // The library search path for linking, i.e. like -L<path>

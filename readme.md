@@ -45,3 +45,9 @@ See: [simple-rust-generic-template-add-function](https://stackoverflow.com/quest
 ### Libraries and sub-projects
 
 I have not quite figured out how to build a hierarchical structure containing .rlib and executables that link dynamically. However this repo does have a sub-folder (could be a submodule) called utils that builds to a .rlib - but when built from the top level just gets linked statically into the top-level project.
+
+## 4. Linking to a shared library
+
+In this folder there is a sub-folder called "cadd" which is a c/c++ shared library project which compiles with `make`. I have linked this library into the project and tagged (with comments) each place I needed to edit in order to use it with `EXTERN_C`. Search the code and toml files for this tag.
+
+For the moment you need to build the cadd lib first then run `cargo build`. But I hope to be able to add that step into the build script (`build.rs`).

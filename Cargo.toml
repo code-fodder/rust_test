@@ -9,6 +9,7 @@ build = "build.rs"
 
 [dependencies]
 utils = { path = "utils" }
+# EXTERN_C
 libc = "*"
 
 [profile.dev]

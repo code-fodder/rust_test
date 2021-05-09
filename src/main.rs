@@ -1,5 +1,7 @@
+// EXTERN_C
 extern crate libc;
 
+// EXTERN_C
 extern  {
     fn cadd(a: libc::c_int, b: libc::c_int) -> libc::c_int;
 }
@@ -9,6 +11,7 @@ fn check() -> bool {
 }
 
 fn main() {
+    // EXTERN_C
     unsafe {
         println!("C-Adding: {}", cadd(3, 2));
     }
@@ -45,12 +48,11 @@ mod main_tester {
         assert_ne!(check(), false);
     }
 
+    // EXTERN_C
     #[test]
     fn c_test() {
         unsafe {
             assert_eq!(cadd(3, 2), 5);
         }
     }
-
-
 }
