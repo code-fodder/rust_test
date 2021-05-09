@@ -23,6 +23,10 @@
 - clean all targets: `cargo clean`
 - clean release only: `cargo clean --release`
 
+### Run
+
+- Run the compiled (local target): `cargo run`
+
 ### Test
 
 - run all tests: `cargo test`
