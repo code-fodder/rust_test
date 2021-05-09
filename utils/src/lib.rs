@@ -26,3 +26,15 @@ impl<T> Adder<T> {
         return a.into() + b.into();
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test1() {
+        assert_eq!(Adder::<f64>::add(1, 2.3), 3.3);
+        assert_eq!(Adder::<i64>::add(1, 2), 3);
+        assert_ne!(Adder::<f64>::add(1, 2.3), 0.0);
+    }
+}

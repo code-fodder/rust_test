@@ -5,6 +5,7 @@
 ### Install Cargo Modules
 
 - Recursive clean: `cargo install cargo-clean-recursive`
+- Create rust FFI bindings to C libs: `cargo install bindgen`
 
 ### Rustup - Add targets
 
@@ -21,6 +22,12 @@
 
 - clean all targets: `cargo clean`
 - clean release only: `cargo clean --release`
+
+### Test
+
+- run all tests: `cargo test`
+- run all tests with the word "main" in the function: `cargo test main`
+- run test function main_t1 only: `cargo test main_t1 -- --exact`
 
 ## 2. Language features
 
