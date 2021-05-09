@@ -42,12 +42,39 @@ See: [simple-rust-generic-template-add-function](https://stackoverflow.com/quest
 
 ## 3. Project Structuring
 
-### Libraries and sub-projects
+The project structure looks like this:
 
-I have not quite figured out how to build a hierarchical structure containing .rlib and executables that link dynamically. However this repo does have a sub-folder (could be a submodule) called utils that builds to a .rlib - but when built from the top level just gets linked statically into the top-level project.
+```shell
+├── build.rs
+├── cadd
+│   ├── cutils.cpp
+│   ├── cutils.h
+│   ├── cutils.hpp
+│   ├── makefile
+├── Cargo.toml
+├── readme.md
+├── src
+│   └── main.rs
+└── utils
+    ├── Cargo.toml
+    └── src
+        └── lib.rs
+```
 
-## 4. Linking to a shared library
+Where:
+
+- `cadd` is a small pure c/c++ library (.so) -> `libadd_x64Linuxd.so*`
+- `utils` is a small rust sub-package (library) -> `libutils.rlib`
+- The top level is a rust executable, which imports utils and links to the c-lib libadd -> `rust_test`
+
+### Dynamic linkage of the c-library
 
 In this folder there is a sub-folder called "cadd" which is a c/c++ shared library project which compiles with `make`. I have linked this library into the project and tagged (with comments) each place I needed to edit in order to use it with `EXTERN_C`. Search the code and toml files for this tag.
 
 For the moment you need to build the cadd lib first then run `cargo build`. But I hope to be able to add that step into the build script (`build.rs`).
+
+When running the executable `rust_test` it needs to be able to find the c-library in the `cadd/lib/` folder relative to the top-level (or set the `LD_LIBRARY_PATH` accordingly).
+
+### Dynamic/static linkage of the rust-library
+
+I have not quite figured out how to build a hierarchical structure containing .rlib and executables that link dynamically. However this repo does have a sub-folder (could be a submodule) called utils that builds to a .rlib - but when built from the top level just gets linked statically into the top-level project.
