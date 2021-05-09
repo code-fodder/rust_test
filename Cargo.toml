@@ -11,6 +11,3 @@ build = "build.rs"
 utils = { path = "utils" }
 # EXTERN_C
 libc = "*"
-
-[profile.dev]
-rpath = true

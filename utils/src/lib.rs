@@ -10,7 +10,7 @@ pub fn test123() {
 // }
 
 pub fn print_item<T>(a: T) where T: fmt::Display {
-    println!("something: {}", a);
+    println!("print_item: {}", a);
 }
 
 

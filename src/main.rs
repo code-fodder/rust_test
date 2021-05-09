@@ -1,5 +1,3 @@
-// EXTERN_C
-extern crate libc;
 
 // EXTERN_C
 extern  {
@@ -11,27 +9,27 @@ fn check() -> bool {
 }
 
 fn main() {
-    // EXTERN_C
-    unsafe {
-        println!("C-Adding: {}", cadd(3, 2));
-    }
 
     println!("Hello, world!");
-
-    println!("adder: {:?}", utils::Adder::<i32>::add(3, 4));
-    println!("adder: {:?}", utils::Adder::<i32>::add(5, 6));
 
     utils::test123();
 
     utils::print_item(12);
-    utils::print_item("ertr");
-
-
+    utils::print_item(10.32);
+    utils::print_item("test");
 
     println!("add int int:   {}", utils::Adder::<i32>::add(1, 2));
     println!("add int float: {}", utils::Adder::<f64>::add(1, 2.3));
-    println!("check: {}", check());
 
+    println!("local check function: {}", check());
+
+
+    // EXTERN_C
+    println!("\nExtern C testing");
+    unsafe {
+        let res = cadd(3, 2);
+        println!("result is {}", res);
+    }
 }
 
 #[cfg(test)]
